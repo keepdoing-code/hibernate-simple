@@ -20,6 +20,7 @@ public class MainApp {
         createTable();
         StudentRepository.insert(new Student("Yuri", 31));
         StudentRepository.insert(new Student("Sashka", 28));
+        StudentRepository.delete(1);
         List<Student> list = StudentRepository.getAll();
         list.forEach(System.out::println);
         HibernateUtil.shutdown();

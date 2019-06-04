@@ -26,7 +26,9 @@ public class StudentRepository {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.getTransaction().begin();
         Student student = session.get(Student.class, id);
-        session.delete(student);
+        if(student != null) {
+            session.delete(student);
+        }
         session.getTransaction().commit();
     }
 
